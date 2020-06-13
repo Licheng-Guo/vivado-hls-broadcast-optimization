@@ -113,7 +113,7 @@ def processPost(post_io, pp_to_fifo) -> str:
 
   return modify_enable
 
-def modifyModuleInternal(mod_type, rtl_path, fifo_to_pp):
+def modifyModuleInternal(mod_type, formator, fifo_to_pp):
   # rely on the following format
   # 
   # 0  always @ (posedge ap_clk) begin
@@ -131,6 +131,7 @@ def modifyModuleInternal(mod_type, rtl_path, fifo_to_pp):
   # Note that there is not a final "else" branch at line 9, which we need to add 
   # Thus in each branch we need a tracker to record the latest value of ap_enable_reg_ppX_iter0
   #
+  rtl_path = formator.getVerilog(mod_type)
 
   orig_fp = open(rtl_path, 'r').readlines()
 

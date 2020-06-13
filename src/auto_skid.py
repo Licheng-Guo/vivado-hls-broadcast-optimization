@@ -13,15 +13,21 @@ import numpy
 from collections import defaultdict
 from pyverilog.vparser.parser import parse
 from pyverilog.vparser import ast
+import os
 
 from modify_internal import *
 from modify_external import *
 from fifo_template import fifo_template
+from user_format import Format_HLS_2019_2
 
 #
 # [output] the type of all non-FIFO modules
 #
 def locateModules(top_hdl_path):
+  if (not os.path.isfile(top_hdl_path)):
+    print(f'[locateModules] no file found for {top_hdl_path}')
+    return None
+
   top_mod_ast, directives = parse([top_hdl_path]) 
 
   all_modules = []
@@ -41,30 +47,39 @@ def locateModules(top_hdl_path):
   return all_modules
 
 def addFIFOTemplate(top_hdl_path):
+  print(f'[addSkidBuffer] processing top file: {formator.getTopVerilog()}')
+
   fp = open(top_hdl_path, 'a')
   fp.write(fifo_template)
 
 #
 # top
 #
-def addSkidBuffer(solution_path, top_name):
-  top_hdl_path = f'{solution_path}/syn/verilog/{top_name}.v'
+def addSkidBuffer(formator):
+  print('*****************************************************\n')
+  print('[addSkidBuffer] the design must use non-blocking read + blocking write')
+  print('[addSkidBuffer] to enable the skid-buffer conversion, first replace all blocking writes by non-blocking writes and re-run HLS')
+  print('[addSkidBuffer] The conversion process will restore the correct functionality and add the flow control logic based on the design with non-blocking writes')
+  print('\n*****************************************************\n\n')
+
+  top_hdl_path = formator.getTopVerilog()
   all_modules = locateModules(top_hdl_path)
 
   for m in all_modules:
-    print(f'[addSkidBuffer] processing {m}')
-    csynth_rpt = f'{solution_path}/syn/report/{m}_csynth.rpt'
-    bind_rpt = f'{solution_path}/.autopilot/db/{m}.verbose.bind.rpt'
-    rtl_path = f'{solution_path}/syn/verilog/{m}.v'
+    if (not formator.isValidModule(m)):
+      print(f'[addSkidBuffer] skip {m}.v')
+      continue
 
-    fifo_to_pp = modifyModuleExternal(m, csynth_rpt, bind_rpt, rtl_path)
-
-    modifyModuleInternal(m, rtl_path, fifo_to_pp)
+    print(f'[addSkidBuffer] processing {m}.v')
+    fifo_to_pp = modifyModuleExternal(m, formator)
+    modifyModuleInternal(m, formator, fifo_to_pp)
 
   # add the almost full fifo template to the top file
   addFIFOTemplate(top_hdl_path)
 
 if (__name__ == '__main__'):
-  solution_path = '/home/einsx7/broadcast/auto_skid/test_rs/solution1'
-  top_name = 'top'
-  addSkidBuffer(solution_path, top_name)
+  solution_path = '/home/einsx7/pr/application/Compression/hls_nb/deflate/solution'
+  top_name = 'deflate'
+
+  formator = Format_HLS_2019_2(solution_path, top_name)
+  addSkidBuffer(formator)

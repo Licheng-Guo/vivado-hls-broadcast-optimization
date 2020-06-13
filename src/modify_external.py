@@ -4,6 +4,7 @@ import os
 import re
 import numpy
 from collections import defaultdict
+import json
 
 RTL_PORTS_IDX = 0
 DIR_IDX = 1
@@ -129,6 +130,9 @@ def getPPOfFIFO(fifo_to_states, state_to_pp):
   fifo_to_pp = defaultdict(list)
   for fifo, states in fifo_to_states.items():
     for state in states:
+      # if the fifo is not accessed in pipeline 
+      if (state not in state_to_pp.keys()):
+        continue
       fifo_to_pp[fifo].append(state_to_pp[state])
   return fifo_to_pp
 
@@ -227,19 +231,30 @@ endmodule\n'''
   fp.write(final)
   fp.write(orig)
 
-def modifyModuleExternal(m, csynth_rpt, bind_rpt, rtl_path):
+def modifyModuleExternal(m, formator):
+  csynth_rpt = formator.getCsynthRpt(m)
+  bind_rpt = formator.getBindRpt(m)
+  rtl_path = formator.getVerilog(m)
 
   # get the interface ports
   interface = getInterfaceFromCsynthRpt(csynth_rpt)
 
   # find outbound ap_fifo interfaces
   ap_fifo_out = getOutboundApFifoPorts(interface)
+  if(not ap_fifo_out):
+    return {}
 
   # find the mapping from ap_fifo to all the states where it is written
   fifo_to_states = getApFifoStates(bind_rpt, ap_fifo_out)
+  if (not fifo_to_states):
+    return {}
+  #print(json.dumps(fifo_to_states, indent=2, sort_keys=True))
 
   # get the mapping from each state to pipelines 
   state_to_pp, pp_length = getPPOfStates(bind_rpt)
+  if (not state_to_pp):
+    return {}
+  #print(json.dumps(state_to_pp, indent=2, sort_keys=True))
 
   # get the mapping from ap_fifo to pipelines
   fifo_to_pp = getPPOfFIFO(fifo_to_states, state_to_pp)
