@@ -1,3 +1,4 @@
+import os
 
 class Format_HLS_2019_2:
   def __init__ (
@@ -13,6 +14,7 @@ class Format_HLS_2019_2:
 
   # possible naming convention 1: {top_name}_{module_name}
   # possible naming convention 2: {module_name}
+  # note that mod_type is parsed from the top rtl file
   def getOrigName(self, mod_type:str):
     former = mod_type[:len(self.top_name)+1]
     latter = mod_type[len(self.top_name)+1:]
@@ -25,16 +27,30 @@ class Format_HLS_2019_2:
       print(f'[getOrigName] encounter unknown naming convention')
 
   def getBindRpt(self, mod_type:str):
-    return f'{self.autopilot_path}/{self.getOrigName(mod_type)}.verbose.bind.rpt'
+    path = f'{self.autopilot_path}/{self.getOrigName(mod_type)}.verbose.bind.rpt'
+    assert(os.path.isfile(path))
+    return path
     
   def getCsynthRpt(self, mod_type:str):
-    return f'{self.rpt_path}/{self.getOrigName(mod_type)}_csynth.rpt'
-  
+    path = f'{self.rpt_path}/{self.getOrigName(mod_type)}_csynth.rpt'
+    assert(os.path.isfile(path))
+    return path
+
   def getVerilog(self, mod_type:str):
-    return f'{self.rtl_path}/{mod_type}.v'
+    path = f'{self.rtl_path}/{mod_type}.v'
+    assert(os.path.isfile(path))
+    return path
 
   def getTopVerilog(self):
-    return f'{self.rtl_path}/{self.top_name}_{self.top_name}.v'
+    path1 = f'{self.rtl_path}/{self.top_name}_{self.top_name}.v'
+    path2 = f'{self.rtl_path}/{self.top_name}.v'
+    if (os.path.isfile(path1)):
+      return path1
+    elif (os.path.isfile(path2)):
+      return path2
+    else:
+      print('[getTopVerilog] unknown format for top hdl file')
+      return None
 
   def isValidModule(self, mod_type:str):
     non_mod_key = ['fifo', '_axi']
