@@ -49,7 +49,7 @@ class Format_HLS_2019_2:
     elif (os.path.isfile(path2)):
       return path2
     else:
-      print('[getTopVerilog] unknown format for top hdl file')
+      print(f'[getTopVerilog] unknown format for top hdl file. Attempted: {self.top_name}_{self.top_name}.v and {self.top_name}.v under {self.rtl_path}')
       return None
 
   def isValidModule(self, mod_type:str):

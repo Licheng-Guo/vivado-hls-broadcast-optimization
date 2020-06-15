@@ -46,7 +46,7 @@ def locateModules(top_hdl_path):
 
   return all_modules
 
-def addFIFOTemplate(top_hdl_path):
+def addFIFOTemplate(top_hdl_path, formator):
   print(f'[addSkidBuffer] processing top file: {formator.getTopVerilog()}')
 
   fp = open(top_hdl_path, 'a')
@@ -75,11 +75,11 @@ def addSkidBuffer(formator):
     modifyModuleInternal(m, formator, fifo_to_pp)
 
   # add the almost full fifo template to the top file
-  addFIFOTemplate(top_hdl_path)
+  addFIFOTemplate(top_hdl_path, formator)
 
 if (__name__ == '__main__'):
-  solution_path = '/home/einsx7/pr/application/Compression/hls_nb/deflate/solution'
-  top_name = 'deflate'
+  solution_path = '/home/einsx7/broadcast/auto_skid/test_rs/solution1'
+  top_name = 'top'
 
   formator = Format_HLS_2019_2(solution_path, top_name)
   addSkidBuffer(formator)
