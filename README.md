@@ -5,7 +5,7 @@ This repo provides analysis and methods to optimize the generated RTL by Vivado 
 - Proper coding style that leads to designs with good timing quality.
 - An automated tool to optimize the micro-architecture of the pipelines in dataflow designs.
 
-If you want to check out details or use our acceleration in your work, please see our paper and cite:
+In this repo, we will complement our paper by presenting in detail our benchmark HLS designs and the generated RTL designs. For more details please see our paper and cite:
 
 > L. Guo*,  J. Lau*, Y. Chi, J. Wang, C. H. Yu, Z. Chen, Z. Zhang and J. Cong,  “Analysis and Optimization of the Implicit Broadcasts in FPGA HLS to Improve Maximum Frequency", the 57th Annual Design Automation Conference (DAC) 2020. * indicates co-first authors.
 
@@ -13,6 +13,6 @@ If you want to check out details or use our acceleration in your work, please se
 
 We classify two major types of implicit broadcasts in HLS-generated designs:
 - ***Data Broadcast*** refers to a high-fanout signal in the datapath, which is typically formed after loop unrolling or array partitioning during the HLS compilation process. The wire delay of an operator will increase as the broadcast factor increases. Such varying delay may cause trouble to the HLS scheduler, which generally relies on static pre-characterized delay estimation.
+  
 - ***Control Broadcast*** refers to a high-fanout control signal which typically originates from an FSM (or controller) and reaches numerous data\-path components such as registers or multiplexers. In our study, we particularly focus on two critical classes of control broadcast: (1) synchronization signal broadcast and (2) pipeline control signal broadcast. These structures commonly cause timing degradation in deeply pipelined and/or highly parallelized designs. Compared to the data broadcasts, the control broadcasts are less studied in HLS.
 
-In this repo, we will complement our paper by presenting in detail our benchmark HLS designs and the generated RTL designs.

@@ -1,0 +1,8 @@
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=17 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=33 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=49 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=65 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=81 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=97 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=113 vivado_hls -f script.tcl
+VIV_VER=2018.2 SDX_VER=2018.2 FILE=device_kernel.cpp I=129 vivado_hls -f script.tcl
