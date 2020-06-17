@@ -1,0 +1,186 @@
+
+
+================================================================
+== Vivado HLS Report for 'jacobi2d_kernel_entry118311'
+================================================================
+* Date:           Tue Jun 16 20:47:23 2020
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        jacobi2d_kernel
+* Solution:       solution
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   3.33|     1.215|        0.90|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+---------+---------+-----+
+|       Name      | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++-----------------+---------+-------+---------+---------+-----+
+|DSP              |        -|      -|        -|        -|    -|
+|Expression       |        -|      -|        0|        2|    -|
+|FIFO             |        -|      -|        -|        -|    -|
+|Instance         |        -|      -|        -|        -|    -|
+|Memory           |        -|      -|        -|        -|    -|
+|Multiplexer      |        -|      -|        -|      126|    -|
+|Register         |        -|      -|        3|        -|    -|
++-----------------+---------+-------+---------+---------+-----+
+|Total            |        0|      0|        3|      128|    0|
++-----------------+---------+-------+---------+---------+-----+
+|Available        |     4320|   6840|  2364480|  1182240|  960|
++-----------------+---------+-------+---------+---------+-----+
+|Utilization (%)  |        0|      0|    ~0   |    ~0   |    0|
++-----------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_block_state1  |    or    |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |ap_done                        |   9|          2|    1|          2|
+    |coalesced_data_num_out1_blk_n  |   9|          2|    1|          2|
+    |coalesced_data_num_out2_blk_n  |   9|          2|    1|          2|
+    |coalesced_data_num_out3_blk_n  |   9|          2|    1|          2|
+    |coalesced_data_num_out_blk_n   |   9|          2|    1|          2|
+    |real_start                     |   9|          2|    1|          2|
+    |var_input_0_0_V_out_blk_n      |   9|          2|    1|          2|
+    |var_input_0_1_V_out_blk_n      |   9|          2|    1|          2|
+    |var_input_0_2_V_out_blk_n      |   9|          2|    1|          2|
+    |var_input_0_3_V_out_blk_n      |   9|          2|    1|          2|
+    |var_output_0_0_V_out_blk_n     |   9|          2|    1|          2|
+    |var_output_0_1_V_out_blk_n     |   9|          2|    1|          2|
+    |var_output_0_2_V_out_blk_n     |   9|          2|    1|          2|
+    |var_output_0_3_V_out_blk_n     |   9|          2|    1|          2|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          | 126|         28|   14|         28|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |        Source Object        |    C Type    |
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+|ap_clk                          |  in |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_rst                          |  in |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_start                        |  in |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|start_full_n                    |  in |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_done                         | out |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_continue                     |  in |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_idle                         | out |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|ap_ready                        | out |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|start_out                       | out |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|start_write                     | out |    1| ap_ctrl_hs | jacobi2d_kernel.entry118311 | return value |
+|coalesced_data_num              |  in |   64|   ap_none  |      coalesced_data_num     |    scalar    |
+|coalesced_data_num_out_din      | out |   64|   ap_fifo  |    coalesced_data_num_out   |    pointer   |
+|coalesced_data_num_out_full_n   |  in |    1|   ap_fifo  |    coalesced_data_num_out   |    pointer   |
+|coalesced_data_num_out_write    | out |    1|   ap_fifo  |    coalesced_data_num_out   |    pointer   |
+|coalesced_data_num_out1_din     | out |   64|   ap_fifo  |   coalesced_data_num_out1   |    pointer   |
+|coalesced_data_num_out1_full_n  |  in |    1|   ap_fifo  |   coalesced_data_num_out1   |    pointer   |
+|coalesced_data_num_out1_write   | out |    1|   ap_fifo  |   coalesced_data_num_out1   |    pointer   |
+|coalesced_data_num_out2_din     | out |   64|   ap_fifo  |   coalesced_data_num_out2   |    pointer   |
+|coalesced_data_num_out2_full_n  |  in |    1|   ap_fifo  |   coalesced_data_num_out2   |    pointer   |
+|coalesced_data_num_out2_write   | out |    1|   ap_fifo  |   coalesced_data_num_out2   |    pointer   |
+|coalesced_data_num_out3_din     | out |   64|   ap_fifo  |   coalesced_data_num_out3   |    pointer   |
+|coalesced_data_num_out3_full_n  |  in |    1|   ap_fifo  |   coalesced_data_num_out3   |    pointer   |
+|coalesced_data_num_out3_write   | out |    1|   ap_fifo  |   coalesced_data_num_out3   |    pointer   |
+|var_output_0_0_V                |  in |   32|   ap_none  |       var_output_0_0_V      |    scalar    |
+|var_output_0_1_V                |  in |   32|   ap_none  |       var_output_0_1_V      |    scalar    |
+|var_output_0_2_V                |  in |   32|   ap_none  |       var_output_0_2_V      |    scalar    |
+|var_output_0_3_V                |  in |   32|   ap_none  |       var_output_0_3_V      |    scalar    |
+|var_input_0_0_V                 |  in |   32|   ap_none  |       var_input_0_0_V       |    scalar    |
+|var_input_0_1_V                 |  in |   32|   ap_none  |       var_input_0_1_V       |    scalar    |
+|var_input_0_2_V                 |  in |   32|   ap_none  |       var_input_0_2_V       |    scalar    |
+|var_input_0_3_V                 |  in |   32|   ap_none  |       var_input_0_3_V       |    scalar    |
+|var_output_0_0_V_out_din        | out |   32|   ap_fifo  |     var_output_0_0_V_out    |    pointer   |
+|var_output_0_0_V_out_full_n     |  in |    1|   ap_fifo  |     var_output_0_0_V_out    |    pointer   |
+|var_output_0_0_V_out_write      | out |    1|   ap_fifo  |     var_output_0_0_V_out    |    pointer   |
+|var_output_0_1_V_out_din        | out |   32|   ap_fifo  |     var_output_0_1_V_out    |    pointer   |
+|var_output_0_1_V_out_full_n     |  in |    1|   ap_fifo  |     var_output_0_1_V_out    |    pointer   |
+|var_output_0_1_V_out_write      | out |    1|   ap_fifo  |     var_output_0_1_V_out    |    pointer   |
+|var_output_0_2_V_out_din        | out |   32|   ap_fifo  |     var_output_0_2_V_out    |    pointer   |
+|var_output_0_2_V_out_full_n     |  in |    1|   ap_fifo  |     var_output_0_2_V_out    |    pointer   |
+|var_output_0_2_V_out_write      | out |    1|   ap_fifo  |     var_output_0_2_V_out    |    pointer   |
+|var_output_0_3_V_out_din        | out |   32|   ap_fifo  |     var_output_0_3_V_out    |    pointer   |
+|var_output_0_3_V_out_full_n     |  in |    1|   ap_fifo  |     var_output_0_3_V_out    |    pointer   |
+|var_output_0_3_V_out_write      | out |    1|   ap_fifo  |     var_output_0_3_V_out    |    pointer   |
+|var_input_0_0_V_out_din         | out |   32|   ap_fifo  |     var_input_0_0_V_out     |    pointer   |
+|var_input_0_0_V_out_full_n      |  in |    1|   ap_fifo  |     var_input_0_0_V_out     |    pointer   |
+|var_input_0_0_V_out_write       | out |    1|   ap_fifo  |     var_input_0_0_V_out     |    pointer   |
+|var_input_0_1_V_out_din         | out |   32|   ap_fifo  |     var_input_0_1_V_out     |    pointer   |
+|var_input_0_1_V_out_full_n      |  in |    1|   ap_fifo  |     var_input_0_1_V_out     |    pointer   |
+|var_input_0_1_V_out_write       | out |    1|   ap_fifo  |     var_input_0_1_V_out     |    pointer   |
+|var_input_0_2_V_out_din         | out |   32|   ap_fifo  |     var_input_0_2_V_out     |    pointer   |
+|var_input_0_2_V_out_full_n      |  in |    1|   ap_fifo  |     var_input_0_2_V_out     |    pointer   |
+|var_input_0_2_V_out_write       | out |    1|   ap_fifo  |     var_input_0_2_V_out     |    pointer   |
+|var_input_0_3_V_out_din         | out |   32|   ap_fifo  |     var_input_0_3_V_out     |    pointer   |
+|var_input_0_3_V_out_full_n      |  in |    1|   ap_fifo  |     var_input_0_3_V_out     |    pointer   |
+|var_input_0_3_V_out_write       | out |    1|   ap_fifo  |     var_input_0_3_V_out     |    pointer   |
++--------------------------------+-----+-----+------------+-----------------------------+--------------+
+

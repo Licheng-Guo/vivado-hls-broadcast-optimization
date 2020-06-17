@@ -1,0 +1,55 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'jacobi2d_kernel'" level="0">
+<item name = "Date">Tue Jun 16 20:47:06 2020
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">jacobi2d_kernel</item>
+<item name = "Solution">solution</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu9p-flgb2104-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">3.33, 2.431, 0.90</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_compute_fu_664">compute, ?, ?, ?, ?, none</column>
+<column name="grp_store38_fu_681">store38, ?, ?, ?, ?, none</column>
+<column name="grp_store39_fu_690">store39, ?, ?, ?, ?, none</column>
+<column name="grp_store40_fu_699">store40, ?, ?, ?, ?, none</column>
+<column name="grp_store_fu_708">store, ?, ?, ?, ?, none</column>
+<column name="grp_load35_fu_717">load35, ?, ?, ?, ?, none</column>
+<column name="grp_load36_fu_727">load36, ?, ?, ?, ?, none</column>
+<column name="grp_load37_fu_736">load37, ?, ?, ?, ?, none</column>
+<column name="grp_load_fu_745">load, ?, ?, ?, ?, none</column>
+<column name="StgValue_42_jacobi2d_kernel_entry118311_fu_754">jacobi2d_kernel_entry118311, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

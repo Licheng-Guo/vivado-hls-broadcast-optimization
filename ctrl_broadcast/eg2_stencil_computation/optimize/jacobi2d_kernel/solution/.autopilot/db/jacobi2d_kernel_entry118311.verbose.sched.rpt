@@ -1,0 +1,151 @@
+
+
+================================================================
+== Vivado HLS Report for 'jacobi2d_kernel_entry118311'
+================================================================
+* Date:           Tue Jun 16 20:41:59 2020
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        jacobi2d_kernel
+* Solution:       solution
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   3.33|     1.215|        0.90|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.21>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1185, i32 0, i32 0, [1 x i8]* @p_str1186, [1 x i8]* @p_str1187, [1 x i8]* @p_str1188, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1189, [1 x i8]* @p_str1190)"   --->   Operation 2 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1185, i32 0, i32 0, [1 x i8]* @p_str1186, [1 x i8]* @p_str1187, [1 x i8]* @p_str1188, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1189, [1 x i8]* @p_str1190)"   --->   Operation 3 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1191, i32 0, i32 0, [1 x i8]* @p_str1192, [1 x i8]* @p_str1193, [1 x i8]* @p_str1194, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1195, [1 x i8]* @p_str1196)"   --->   Operation 4 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1191, i32 0, i32 0, [1 x i8]* @p_str1192, [1 x i8]* @p_str1193, [1 x i8]* @p_str1194, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1195, [1 x i8]* @p_str1196)"   --->   Operation 5 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1197, i32 0, i32 0, [1 x i8]* @p_str1198, [1 x i8]* @p_str1199, [1 x i8]* @p_str1200, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1201, [1 x i8]* @p_str1202)"   --->   Operation 6 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1197, i32 0, i32 0, [1 x i8]* @p_str1198, [1 x i8]* @p_str1199, [1 x i8]* @p_str1200, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1201, [1 x i8]* @p_str1202)"   --->   Operation 7 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out3, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1203, i32 0, i32 0, [1 x i8]* @p_str1204, [1 x i8]* @p_str1205, [1 x i8]* @p_str1206, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1207, [1 x i8]* @p_str1208)"   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out3, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1203, i32 0, i32 0, [1 x i8]* @p_str1204, [1 x i8]* @p_str1205, [1 x i8]* @p_str1206, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1207, [1 x i8]* @p_str1208)"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_output_0_0_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1175, i32 0, i32 0, [1 x i8]* @p_str1176, [1 x i8]* @p_str1177, [1 x i8]* @p_str1178, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1179, [1 x i8]* @p_str1180)"   --->   Operation 10 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%var_input_0_3_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_input_0_3_V)"   --->   Operation 11 'read' 'var_input_0_3_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%var_input_0_2_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_input_0_2_V)"   --->   Operation 12 'read' 'var_input_0_2_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%var_input_0_1_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_input_0_1_V)"   --->   Operation 13 'read' 'var_input_0_1_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%var_input_0_0_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_input_0_0_V)"   --->   Operation 14 'read' 'var_input_0_0_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%var_output_0_3_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_output_0_3_V)"   --->   Operation 15 'read' 'var_output_0_3_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%var_output_0_2_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_output_0_2_V)"   --->   Operation 16 'read' 'var_output_0_2_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%var_output_0_1_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_output_0_1_V)"   --->   Operation 17 'read' 'var_output_0_1_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%var_output_0_0_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %var_output_0_0_V)"   --->   Operation 18 'read' 'var_output_0_0_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%coalesced_data_num_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %coalesced_data_num)"   --->   Operation 19 'read' 'coalesced_data_num_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_output_0_0_V_out, i32 %var_output_0_0_V_read)"   --->   Operation 20 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_output_0_1_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1181, i32 0, i32 0, [1 x i8]* @p_str1182, [1 x i8]* @p_str1183, [1 x i8]* @p_str1184, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1237, [1 x i8]* @p_str1257)"   --->   Operation 21 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_output_0_1_V_out, i32 %var_output_0_1_V_read)"   --->   Operation 22 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_output_0_2_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1264, i32 0, i32 0, [1 x i8]* @p_str1271, [1 x i8]* @p_str1278, [1 x i8]* @p_str1337, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1344, [1 x i8]* @p_str1351)"   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_output_0_2_V_out, i32 %var_output_0_2_V_read)"   --->   Operation 24 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_output_0_3_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1358, i32 0, i32 0, [1 x i8]* @p_str1365, [1 x i8]* @p_str1366, [1 x i8]* @p_str1367, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1368, [1 x i8]* @p_str1369)"   --->   Operation 25 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_output_0_3_V_out, i32 %var_output_0_3_V_read)"   --->   Operation 26 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_input_0_0_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1370, i32 0, i32 0, [1 x i8]* @p_str1371, [1 x i8]* @p_str1372, [1 x i8]* @p_str1373, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1374, [1 x i8]* @p_str1375)"   --->   Operation 27 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_input_0_0_V_out, i32 %var_input_0_0_V_read)"   --->   Operation 28 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_input_0_1_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1376, i32 0, i32 0, [1 x i8]* @p_str1377, [1 x i8]* @p_str1378, [1 x i8]* @p_str1379, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1380, [1 x i8]* @p_str1381)"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_input_0_1_V_out, i32 %var_input_0_1_V_read)"   --->   Operation 30 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_input_0_2_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1382, i32 0, i32 0, [1 x i8]* @p_str1383, [1 x i8]* @p_str1384, [1 x i8]* @p_str1385, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1386, [1 x i8]* @p_str1387)"   --->   Operation 31 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_input_0_2_V_out, i32 %var_input_0_2_V_read)"   --->   Operation 32 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %var_input_0_3_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1388, i32 0, i32 0, [1 x i8]* @p_str1389, [1 x i8]* @p_str1390, [1 x i8]* @p_str1391, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1392, [1 x i8]* @p_str1393)"   --->   Operation 33 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %var_input_0_3_V_out, i32 %var_input_0_3_V_read)"   --->   Operation 34 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1185, i32 0, i32 0, [1 x i8]* @p_str1186, [1 x i8]* @p_str1187, [1 x i8]* @p_str1188, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1189, [1 x i8]* @p_str1190)"   --->   Operation 35 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1191, i32 0, i32 0, [1 x i8]* @p_str1192, [1 x i8]* @p_str1193, [1 x i8]* @p_str1194, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1195, [1 x i8]* @p_str1196)"   --->   Operation 36 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1197, i32 0, i32 0, [1 x i8]* @p_str1198, [1 x i8]* @p_str1199, [1 x i8]* @p_str1200, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1201, [1 x i8]* @p_str1202)"   --->   Operation 37 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out3, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1203, i32 0, i32 0, [1 x i8]* @p_str1204, [1 x i8]* @p_str1205, [1 x i8]* @p_str1206, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1207, [1 x i8]* @p_str1208)"   --->   Operation 38 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1185, i32 0, i32 0, [1 x i8]* @p_str1186, [1 x i8]* @p_str1187, [1 x i8]* @p_str1188, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1189, [1 x i8]* @p_str1190)"   --->   Operation 39 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i64P(i64* %coalesced_data_num_out, i64 %coalesced_data_num_read)"   --->   Operation 40 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1191, i32 0, i32 0, [1 x i8]* @p_str1192, [1 x i8]* @p_str1193, [1 x i8]* @p_str1194, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1195, [1 x i8]* @p_str1196)"   --->   Operation 41 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i64P(i64* %coalesced_data_num_out1, i64 %coalesced_data_num_read)"   --->   Operation 42 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out2, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1197, i32 0, i32 0, [1 x i8]* @p_str1198, [1 x i8]* @p_str1199, [1 x i8]* @p_str1200, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1201, [1 x i8]* @p_str1202)"   --->   Operation 43 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i64P(i64* %coalesced_data_num_out2, i64 %coalesced_data_num_read)"   --->   Operation 44 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %coalesced_data_num_out3, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str1203, i32 0, i32 0, [1 x i8]* @p_str1204, [1 x i8]* @p_str1205, [1 x i8]* @p_str1206, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str1207, [1 x i8]* @p_str1208)"   --->   Operation 45 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (1.21ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i64P(i64* %coalesced_data_num_out3, i64 %coalesced_data_num_read)"   --->   Operation 46 'write' <Predicate = true> <Delay = 1.21> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 2> <FIFO>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 47 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.33ns, clock uncertainty: 0.899ns.
+
+ <State 1>: 1.22ns
+The critical path consists of the following:
+	wire read on port 'var_input_0_3_V' [31]  (0 ns)
+	fifo write on port 'var_input_0_3_V_out' [54]  (1.22 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
