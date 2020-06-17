@@ -52,7 +52,10 @@ def run(
   formator = Format_HLS_2019_2(solution_path, top_name)
   addSkidBuffer(formator)
 
-  os.system(f'cd {work_dir}/hls && VIV_VER=2019.2 vivado_hls -f pack_xo.tcl')
+  # to pack the modified RTL into xo objects
+  #os.system(f'cd {work_dir}/hls && VIV_VER=2019.2 vivado_hls -f pack_xo.tcl')
+  
+  # to run SDAccel / Vitis
   #os.system('./run_vitis.sh')
 
 if (__name__ == '__main__'):

@@ -19,7 +19,7 @@ Specifically, we need to adapt the current ***stall-based flow control*** approa
 for (long long i = 0; i < SIZE; ) {
   #pragma HLS pipeline II=1
   if (!in_port.empty()) {
-    in_port.read(buffer[i]);
+    in_port.read_nb(buffer[i]);
     i++;
   }
 }
