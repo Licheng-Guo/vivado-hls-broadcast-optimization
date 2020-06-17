@@ -88,7 +88,7 @@ However, to make things more interesting, we present another method that could a
 
 We present a generalized template wrapper to do this, as shown in Figure 8b. The key technique is to register the stall signal once before sendingit to the sub-datapath. This reduces the broadcast factor of the original source of the stall, but will make the subset stall one cyclelater. To keep the correct functionality, we need special modification to the output of the subset. At the output side, a buffer register is implemented to keep a copy of the output. When congestion happens, the inner module is stalled one cycle late, during which the outputting data will be kept by the buffer register. We refer to this technique as multi-level stall control. The following table provides a walk-through example explaining how themulti-level wrapper works and why no data will be lost. In this example we assume the sub-datapath only has one internal stage. “#i” refers to the i-th data transaction, and the sink is supposed tosee sequential numbers without repetition or skip.
 
-`[TODO] add the figure`
+![multi-cycle-stall](https://github.com/Licheng-Guo/vivado-hls-broadcast-optimization/blob/master/ctrl_broadcast/eg2_stream_buffer/mult-cycle_stall.png)
 
 | cycle | event  | en | en\_q | src | out | buf | mux\_select | sink |
 |-------|--------|----|-------|-----|-----|-----|-------------|------|
