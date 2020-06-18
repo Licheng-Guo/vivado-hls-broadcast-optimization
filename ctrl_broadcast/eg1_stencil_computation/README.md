@@ -12,15 +12,17 @@ diff original/*.cpp optimized/*.cpp
 Compared to data broadcast, control broadcast is basically impossible to hack through the source code, and we need to directly operate on the generated Verilog files. Obviously this is only a make-do approach. The good news is that Xilinx is now aware of this problem and we are cooperating with them to improve the micro-architecture of their flow-control mechanism.
 Before Xilinx update their tools, expert users still can fix the issue through the following approach. 
 
-Specifically, we need to adapt the current ***stall-based flow control*** approach of Vivado HLS to the ***skid-buffer-based flow control***, which is discussed in detail in our paper. We also provide a script tool called ```auto-skid``` to automatically perform the following steps.
+Specifically, we need to adapt the current ***stall-based flow control*** approach of Vivado HLS to the ***skid-buffer-based flow control***, which is discussed in detail in our paper. 
 
 The following figure shows how stall-based flow control works:
 
 ![stall-pipeline](https://github.com/Licheng-Guo/vivado-hls-broadcast-optimization/blob/master/ctrl_broadcast/eg1_stencil_computation/stall-pipeline.png)
 
-In comparison, the following figure shows how skid-buffer-based flow control works:
+In comparison, the following figure shows how skid-buffer-based flow control works. Note that we implement an additional skid-buffer, while the broadcast of the stall signal is gone.
 
 ![skid-buffer-pipeline](https://github.com/Licheng-Guo/vivado-hls-broadcast-optimization/blob/master/ctrl_broadcast/eg1_stencil_computation/skid-buffer-pipeline.png)
+
+In the following we present how we can convert the HLS-generated RTL to our desired micro-architecture. We also provide a script tool called ```auto-skid``` to automatically perform the following steps.
 
 1. Make sure the design only use ```non-blocking read```. Although the skid-buffer approach does not require this limitation, such coding style will make it easier to hack the RTL. An example is:
 ```c++
