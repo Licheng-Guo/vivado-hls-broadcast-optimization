@@ -14,6 +14,14 @@ Before Xilinx update their tools, expert users still can fix the issue through t
 
 Specifically, we need to adapt the current ***stall-based flow control*** approach of Vivado HLS to the ***skid-buffer-based flow control***, which is discussed in detail in our paper. We also provide a script tool called ```auto-skid``` to automatically perform the following steps.
 
+The following figure shows how stall-based flow control works:
+
+![stall-pipeline](https://github.com/Licheng-Guo/vivado-hls-broadcast-optimization/blob/master/ctrl_broadcast/eg1_stencil_computation/stall-pipeline.png)
+
+In comparison, the following figure shows how skid-buffer-based flow control works:
+
+![skid-buffer-pipeline](https://github.com/Licheng-Guo/vivado-hls-broadcast-optimization/blob/master/ctrl_broadcast/eg1_stencil_computation/skid-buffer-pipeline.png)
+
 1. Make sure the design only use ```non-blocking read```. Although the skid-buffer approach does not require this limitation, such coding style will make it easier to hack the RTL. An example is:
 ```c++
 for (long long i = 0; i < SIZE; ) {
