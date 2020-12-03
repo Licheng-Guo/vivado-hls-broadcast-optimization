@@ -1,3 +1,9 @@
+# Latest
+
+Starting from Version 2020.2, the Vitis HLS has officially supported our proposed skid-buffer-based pipeline control mechanism, which is named as `free-run pipeline`. Please have a look at their documents if you are interested!
+
+`https://www.xilinx.com/html_docs/xilinx2020_2/vitis_doc/muj1585343754477.html?hl=free%2Crunning%2Cpipeline`
+
 # Introduction
 
 This repo provides analysis and methods to optimize the generated RTL by Vivado HLS regarding the ultimate achievable frequency. Specifically we focus on optimizing the "implicit" broadcasts in HLS-generated designs, which in many cases become the critical paths. This repo can potentially help you with the following:
